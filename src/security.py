@@ -13,7 +13,7 @@ ALGORITHM = "HS256"
 
 class AccessToken(BaseModel):
     iss: str
-    sub: int
+    sub: str
     aud: str
     exp: float
     iat: float
@@ -29,7 +29,7 @@ def sign_jwt(user_id: int) -> dict[str, str]:
     now = time.time()
     payload = {
         "iss": "https://desafio-dio-bank.onrender.com",
-        "sub": user_id,
+        "sub": str(user_id),
         "aud": "desafio-dio-bank",
         "exp": now + (60 * 30),  # 30 minutes
         "iat": now,
@@ -84,7 +84,7 @@ class JWTBearer(HTTPBearer):
 async def get_current_user(
     token: Annotated[JWTToken, Depends(JWTBearer())],
 ) -> dict[str, int]:
-    return {"user_id": token.access_token.sub}
+    return {"user_id": int(token.access_token.sub)}
 
 
 def login_required(current_user: Annotated[dict[str, int], Depends(get_current_user)]):
