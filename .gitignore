@@ -5,7 +5,6 @@ pyrightconfig.json
 .vscode/
 tests/*
 __pycache__/
-/migrations/*
 /src/__pycache__/*
 /src/controllers/__pycache__/*
 /src/models/__pycache__/*
