@@ -1,6 +1,5 @@
 bank.sqlite3
 pyrightconfig.json
-alembic.ini
 .env
 .Python
 .vscode/

@@ -7,7 +7,7 @@ from fastapi import Depends, HTTPException, Request, status
 from fastapi.security import HTTPBearer
 from pydantic import BaseModel
 
-SECRET = "my-secret"
+SECRET = "my-super-secret-key-that-is-at-least-32-bytes-long!!"
 ALGORITHM = "HS256"
 
 
@@ -47,7 +47,8 @@ async def decode_jwt(token: str) -> JWTToken | None:
         )
         _token = JWTToken.model_validate({"access_token": decoded_token})
         return _token if _token.access_token.exp >= time.time() else None
-    except Exception:
+    except Exception as e:
+        print(f"JWT Decode Error: {e}")
         return None
 
 

@@ -27,7 +27,7 @@ migration:
 
 # Aplicar migrações ao banco de dados
 upgrade:
-	poetry run alembic upgrade head
+	poetry run alembic -c alembic.ini upgrade head
 
 # Rodar o servidor FastAPI
 run:
