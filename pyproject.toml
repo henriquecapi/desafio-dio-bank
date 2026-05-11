@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "capi-bank"
+version = "0.1.0"
+package-mode = false
+description = "Um desafio de API com FastAPI proposta e modelo DIO-Bank"
+authors = ["Henrique Capibaribe <henriquecapi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "*"
+uvicorn = { extras = ["standard"], version = "*" }
+databases = { version = "*", extras = ["aiosqlite", "asyncpg"] }
+pyjwt = "*"
+psycopg2-binary = "*"
+pydantic-settings = "*"
+alembic = "*"
+
+[tool.poetry.group.dev.dependencies]
+black = "^26.3.1"
+isort = "^8.0.1"
+
+[tool.pyrefly]
+search-path = ["."]
+python-interpreter = "C:\\Users\\henri\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\capi-bank-hkk0obbL-py3.11\\Scripts\\python.exe"
+
+[tool.ruff]
+line-length = 120
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
